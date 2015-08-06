@@ -4,6 +4,8 @@
 #include "ccspec/expectation.h"
 #include "ccspec/matchers.h"
 
+#include "tree.h"
+
 using namespace std;
 using namespace ccspec;
 using namespace ccspec::core;
@@ -13,6 +15,10 @@ using namespace ccspec::matchers;
 int main() {
 
     unique_ptr<ExampleGroup> example_group(describe("Binary Search Tree", [] {
+
+        it("can create a tree", []{
+            bst::tree my_tree;
+        });
 
     }));
 
