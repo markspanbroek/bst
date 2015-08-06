@@ -20,6 +20,11 @@ int main() {
             bst::tree my_tree;
         });
 
+        it("is empty by default", []{
+            bst::tree my_tree;
+            expect(my_tree.is_empty()).to(be_truthy);
+        });
+
     }));
 
     DocumentationFormatter formatter(cout);
