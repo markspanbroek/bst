@@ -16,13 +16,21 @@ int main() {
 
     unique_ptr<ExampleGroup> example_group(describe("Binary Search Tree", [] {
 
-        it("can create a tree", []{
+        it("can create a tree", [] {
             bst::tree my_tree;
         });
 
-        it("is empty by default", []{
+        it("is empty by default", [] {
             bst::tree my_tree;
             expect(my_tree.is_empty()).to(be_truthy);
+        });
+
+        it("can contain a value", [] {
+            bst::tree my_tree;
+
+            my_tree.add(1);
+
+            expect(my_tree.is_empty()).to(be_falsey);
         });
 
     }));
