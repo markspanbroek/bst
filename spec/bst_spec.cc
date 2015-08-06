@@ -11,26 +11,26 @@ using namespace ccspec;
 using namespace ccspec::core;
 using namespace ccspec::core::formatters;
 using namespace ccspec::matchers;
+using namespace bst;
 
 int main() {
 
-    unique_ptr<ExampleGroup> example_group(describe("Binary Search Tree", [] {
+    shared_ptr<tree> my_tree;
 
-        it("can create a tree", [] {
-            bst::tree my_tree;
+    unique_ptr<ExampleGroup> example_group(describe("Binary Search Tree", [&] {
+
+        before("each", [&] {
+            my_tree = make_shared<tree>();
         });
 
-        it("is empty by default", [] {
-            bst::tree my_tree;
-            expect(my_tree.is_empty()).to(be_truthy);
+        it("is empty by default", [&] {
+            expect(my_tree->is_empty()).to(be_truthy);
         });
 
-        it("can contain a value", [] {
-            bst::tree my_tree;
+        it("can contain a value", [&] {
+            my_tree->add(1);
 
-            my_tree.add(1);
-
-            expect(my_tree.is_empty()).to(be_falsey);
+            expect(my_tree->is_empty()).to(be_falsey);
         });
 
     }));
