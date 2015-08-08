@@ -1,24 +1,24 @@
 #pragma once
 
+#include "node.h"
+
 namespace bst {
+
+    using namespace std;
 
     template<class T>
     class tree {
 
-        bool empty;
+        shared_ptr<node<T>> top;
 
     public:
 
-        tree() {
-            empty = true;
-        }
-
         bool is_empty() {
-            return empty;
+            return !top;
         }
 
         void add(T element) {
-            empty = false;
+            top = make_shared<node<T>>();
         }
     };
 
