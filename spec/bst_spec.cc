@@ -15,12 +15,12 @@ using namespace bst;
 
 int main() {
 
-    shared_ptr<tree> my_tree;
+    shared_ptr<tree<int>> my_tree;
 
     unique_ptr<ExampleGroup> example_group(describe("Binary Search Tree", [&] {
 
         before("each", [&] {
-            my_tree = make_shared<tree>();
+            my_tree = make_shared<tree<int>>();
         });
 
         it("is empty by default", [&] {
@@ -31,6 +31,11 @@ int main() {
             my_tree->add(1);
 
             expect(my_tree->is_empty()).to(be_falsey);
+        });
+
+        it("can contain values of different types", [&] {
+            auto string_tree = tree<string>();
+            string_tree.add("a");
         });
 
     }));

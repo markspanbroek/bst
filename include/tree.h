@@ -2,17 +2,24 @@
 
 namespace bst {
 
+    template<class T>
     class tree {
 
         bool empty;
 
     public:
 
-        tree();
+        tree() {
+            empty = true;
+        }
 
-        bool is_empty();
+        bool is_empty() {
+            return empty;
+        }
 
-        void add(int element);
+        void add(T element) {
+            empty = false;
+        }
     };
 
 }
