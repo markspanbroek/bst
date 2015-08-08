@@ -28,7 +28,7 @@ namespace bst {
         }
 
         void increment() {
-            // TODO
+            current_node = current_node->next();
         }
 
     };

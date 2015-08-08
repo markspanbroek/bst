@@ -56,6 +56,19 @@ int main() {
             expect(*(my_tree->rbegin())).to(be == 4);
         });
 
+        it("iterates over its elements in ascending order", [&] {
+            my_tree->add(7);
+            my_tree->add(5);
+            my_tree->add(3);
+            my_tree->add(4);
+            my_tree->add(10);
+            my_tree->add(1);
+
+            auto elements = vector<int>(my_tree->begin(), my_tree->end());
+
+            expect(elements).to(be == vector<int>{1, 3, 4, 5, 7, 10});
+        });
+
     }));
 
     DocumentationFormatter formatter(cout);

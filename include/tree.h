@@ -43,6 +43,11 @@ namespace bst {
             iterator<T> result(rbegin_node);
             return result;
         }
+
+        iterator<T> end() {
+            iterator<T> null_iterator(nullptr);
+            return null_iterator;
+        }
     };
 
 }

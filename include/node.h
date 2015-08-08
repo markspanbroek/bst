@@ -46,6 +46,25 @@ namespace bst {
             return this;
         }
 
+        node<T> *next() {
+            if (higher) {
+                return higher->begin();
+            } else {
+                return next_backtrack();
+            }
+        }
+
+        node<T> *next_backtrack() {
+            if (parent) {
+                if (parent->lower.get() == this) {
+                    return parent;
+                } else {
+                    return parent->next_backtrack();
+                }
+            }
+            return nullptr;
+        }
+
         node<T> *rbegin() {
             if (higher) {
                 return higher->rbegin();
