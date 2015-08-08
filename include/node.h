@@ -9,13 +9,15 @@ namespace bst {
 
         T value;
 
+        node<T> *parent;
+
         shared_ptr<node<T>> lower;
 
         shared_ptr<node<T>> higher;
 
     public:
 
-        node(T value) : value(value) {}
+        node(T value, node<T> *parent = nullptr) : value(value), parent(parent) {}
 
         T &get_value() {
             return value;
@@ -26,13 +28,13 @@ namespace bst {
                 if (lower) {
                     lower->add(value);
                 } else {
-                    lower = make_shared<node<T>>(value);
+                    lower = make_shared<node<T>>(value, this);
                 }
             } else {
                 if (higher) {
                     higher->add(value);
                 } else {
-                    higher = make_shared<node<T>>(value);
+                    higher = make_shared<node<T>>(value, this);
                 }
             }
         }
