@@ -1,6 +1,7 @@
 #pragma once
 
 #include "node.h"
+#include "iterator.h"
 
 namespace bst {
 
@@ -25,11 +26,13 @@ namespace bst {
             }
         }
 
-        T *begin() {
+        iterator<T> begin() {
+            node<T> *begin_node = nullptr;
             if (top) {
-                return top->begin();
+                begin_node = top->begin();
             }
-            return nullptr;
+            iterator<T> result(begin_node);
+            return result;
         }
     };
 

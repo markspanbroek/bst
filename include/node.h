@@ -15,6 +15,10 @@ namespace bst {
 
         node(T value) : value(value) {}
 
+        T &get_value() {
+            return value;
+        }
+
         void add(T value) {
             if (value < this->value) {
                 if (lower) {
@@ -25,11 +29,11 @@ namespace bst {
             }
         }
 
-        T *begin() {
+        node<T> *begin() {
             if (lower) {
                 return lower->begin();
             }
-            return &value;
+            return this;
         }
 
     };
