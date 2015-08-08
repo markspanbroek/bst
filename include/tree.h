@@ -35,12 +35,12 @@ namespace bst {
             return result;
         }
 
-        iterator<T> rbegin() {
+        reverse_iterator<T> rbegin() {
             node<T> *rbegin_node = nullptr;
             if (top) {
                 rbegin_node = top->rbegin();
             }
-            iterator<T> result(rbegin_node);
+            reverse_iterator<T> result(rbegin_node);
             return result;
         }
 
@@ -48,6 +48,12 @@ namespace bst {
             iterator<T> null_iterator(nullptr);
             return null_iterator;
         }
+
+        reverse_iterator<T> rend() {
+            reverse_iterator<T> null_iterator(nullptr);
+            return null_iterator;
+        }
+
     };
 
 }

@@ -54,12 +54,31 @@ namespace bst {
             }
         }
 
+        node<T> *previous() {
+            if (lower) {
+                return lower->rbegin();
+            } else {
+                return previous_backtrack();
+            }
+        }
+
         node<T> *next_backtrack() {
             if (parent) {
                 if (parent->lower.get() == this) {
                     return parent;
                 } else {
                     return parent->next_backtrack();
+                }
+            }
+            return nullptr;
+        }
+
+        node<T> *previous_backtrack() {
+            if (parent) {
+                if (parent->higher.get() == this) {
+                    return parent;
+                } else {
+                    return parent->previous_backtrack();
                 }
             }
             return nullptr;

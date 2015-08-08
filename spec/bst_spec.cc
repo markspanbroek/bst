@@ -63,6 +63,12 @@ int main() {
                 expect(elements).to(be == vector<int>{1, 3, 4, 5, 7, 10});
             });
 
+            it("iterates over its elements in descending order", [&] {
+                auto elements = vector<int>(my_tree->rbegin(), my_tree->rend());
+
+                expect(elements).to(be == vector<int>{10, 7, 5, 4, 3, 1});
+            });
+
         });
 
     }));
