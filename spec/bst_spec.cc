@@ -38,6 +38,15 @@ int main() {
             string_tree.add("a");
         });
 
+        it("can determine the lowest value", [&] {
+            my_tree->add(3);
+            my_tree->add(2);
+            my_tree->add(1);
+            my_tree->add(4);
+
+            expect(*(my_tree->begin())).to(be == 1);
+        });
+
     }));
 
     DocumentationFormatter formatter(cout);

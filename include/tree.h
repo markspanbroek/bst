@@ -18,7 +18,18 @@ namespace bst {
         }
 
         void add(T element) {
-            top = make_shared<node<T>>();
+            if (top) {
+                top->add(element);
+            } else {
+                top = make_shared<node<T>>(element);
+            }
+        }
+
+        T *begin() {
+            if (top) {
+                return top->begin();
+            }
+            return nullptr;
         }
     };
 
