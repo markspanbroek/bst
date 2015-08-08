@@ -14,3 +14,20 @@ tests I wrote and how the implementation took shape. Think about how you
 would approach the problem, what different steps you would take and why.
 But whatever you do, do not use this implementation in your program or library.
 Simply use the STL instead.
+
+Dependencies & Building
+-----------------------
+
+To build, use [biicode][3]:
+
+    bii init
+    bii new markspanbroek/bst
+    git clone https://github.com/markspanbroek/bst blocks/markspanbroek/bst
+    bii test
+
+
+I used the [CCSpec][1] testing framework and the [Boost.Iterator][2] library.
+
+[1]: https://github.com/zhangsu/ccspec
+[2]: http://www.boost.org/doc/libs/1_58_0/libs/iterator/doc/index.html
+[3]: http://biicode.com
