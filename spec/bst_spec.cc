@@ -47,6 +47,15 @@ int main() {
             expect(*(my_tree->begin())).to(be == 1);
         });
 
+        it("can determine the highest value", [&] {
+            my_tree->add(2);
+            my_tree->add(3);
+            my_tree->add(4);
+            my_tree->add(1);
+
+            expect(*(my_tree->rbegin())).to(be == 4);
+        });
+
     }));
 
     DocumentationFormatter formatter(cout);

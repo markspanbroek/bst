@@ -34,6 +34,15 @@ namespace bst {
             iterator<T> result(begin_node);
             return result;
         }
+
+        iterator<T> rbegin() {
+            node<T> *rbegin_node = nullptr;
+            if (top) {
+                rbegin_node = top->rbegin();
+            }
+            iterator<T> result(rbegin_node);
+            return result;
+        }
     };
 
 }

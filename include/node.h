@@ -11,6 +11,8 @@ namespace bst {
 
         shared_ptr<node<T>> lower;
 
+        shared_ptr<node<T>> higher;
+
     public:
 
         node(T value) : value(value) {}
@@ -26,12 +28,25 @@ namespace bst {
                 } else {
                     lower = make_shared<node<T>>(value);
                 }
+            } else {
+                if (higher) {
+                    higher->add(value);
+                } else {
+                    higher = make_shared<node<T>>(value);
+                }
             }
         }
 
         node<T> *begin() {
             if (lower) {
                 return lower->begin();
+            }
+            return this;
+        }
+
+        node<T> *rbegin() {
+            if (higher) {
+                return higher->rbegin();
             }
             return this;
         }
