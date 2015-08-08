@@ -38,35 +38,31 @@ int main() {
             string_tree.add("a");
         });
 
-        it("can determine the lowest value", [&] {
-            my_tree->add(3);
-            my_tree->add(2);
-            my_tree->add(1);
-            my_tree->add(4);
+        describe("iteration", [&] {
 
-            expect(*(my_tree->begin())).to(be == 1);
-        });
+            before("each", [&] {
+                my_tree->add(7);
+                my_tree->add(5);
+                my_tree->add(3);
+                my_tree->add(4);
+                my_tree->add(10);
+                my_tree->add(1);
+            });
 
-        it("can determine the highest value", [&] {
-            my_tree->add(2);
-            my_tree->add(3);
-            my_tree->add(4);
-            my_tree->add(1);
+            it("can determine the lowest value", [&] {
+                expect(*(my_tree->begin())).to(be == 1);
+            });
 
-            expect(*(my_tree->rbegin())).to(be == 4);
-        });
+            it("can determine the highest value", [&] {
+                expect(*(my_tree->rbegin())).to(be == 10);
+            });
 
-        it("iterates over its elements in ascending order", [&] {
-            my_tree->add(7);
-            my_tree->add(5);
-            my_tree->add(3);
-            my_tree->add(4);
-            my_tree->add(10);
-            my_tree->add(1);
+            it("iterates over its elements in ascending order", [&] {
+                auto elements = vector<int>(my_tree->begin(), my_tree->end());
 
-            auto elements = vector<int>(my_tree->begin(), my_tree->end());
+                expect(elements).to(be == vector<int>{1, 3, 4, 5, 7, 10});
+            });
 
-            expect(elements).to(be == vector<int>{1, 3, 4, 5, 7, 10});
         });
 
     }));
